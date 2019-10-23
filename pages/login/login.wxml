@@ -1,0 +1,18 @@
+<!-- pages/login/login.wxml -->
+<view class="login">
+    <view class="userinfo">
+        <block>
+            <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+            <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+        </block>
+    </view>
+    <view class="login-form">
+        <van-cell-group>
+            <van-field value="{{ username }}" clearable label="用户名" bind:input="usernameIn" placeholder="请输入用户名" />
+            <van-field value="{{ password }}" type="password" label="密码" placeholder="请输入密码" bind:input="passwordIn" border="{{ false }}" />
+        </van-cell-group>
+        <van-button round class="login-btn" bind:click="login" type="primary" size="large">
+            登陆
+        </van-button>
+    </view>
+</view>

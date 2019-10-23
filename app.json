@@ -1,0 +1,41 @@
+{
+  "pages": [
+    "pages/device/device",
+    "pages/my/my",
+    "pages/login/login",
+    "pages/login/auth"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "usingComponents": {
+    "van-button": "vant-weapp/button/index",
+    "van-field": "vant-weapp/field/index"
+  },
+  "tabBar": {
+    "custom": false,
+    "color": "#666666",
+    "selectedColor": "#449f45",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "position": "bottom",
+    "list": [
+      {
+        "pagePath": "pages/device/device",
+        "iconPath": "images/tabbar/out.png",
+        "selectedIconPath": "images/tabbar/out-selected.png",
+        "text": "设备"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "iconPath": "images/tabbar/me.png",
+        "selectedIconPath": "images/tabbar/me-selected.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}
