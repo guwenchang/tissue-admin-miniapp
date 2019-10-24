@@ -2,8 +2,7 @@
   "pages": [
     "pages/device/device",
     "pages/my/my",
-    "pages/login/login",
-    "pages/login/auth"
+    "pages/login/login"
   ],
   "window": {
     "backgroundTextStyle": "light",

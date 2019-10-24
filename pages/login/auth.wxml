@@ -1,4 +1,0 @@
-<!--index.wxml-->
-<view class="container">
-  <van-button wx:if="{{!hasUserInfo}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" round class="login-btn" type="primary" size="large">微信登陆</van-button>
-</view>

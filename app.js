@@ -11,6 +11,23 @@ App({
   onLaunch: function () {
     // 调用登录方法，处理登录
     this.userLogin();
+    // 获取用户信息
+    wx.getSetting({
+      success: res => {
+        if (res.authSetting['scope.userInfo']) {
+          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
+          wx.getUserInfo({
+            success: res => {
+              // 可以将 res 发送给后台解码出 unionId
+              this.globalData.userInfo = res.userInfo;
+              if (this.userInfoReadyCallback) {
+                this.userInfoReadyCallback(res)
+              }
+            }
+          })
+        }
+      }
+    })
   },
   //登录
   userLogin: function () {
@@ -20,20 +37,7 @@ App({
       // 小程序登录接口
       success: function (res) {
         if (res.code) {
-          var codes = res.code;
-          wx.getSetting({
-            success: res => {
-              if (res.authSetting['scope.userInfo']) {
-                // 用户信息已经授权过，直接登陆
-                that.login(codes);
-              } else {
-                // 进入授权页，强制授权
-                wx.redirectTo({
-                  url: '../login/auth'
-                });
-              }
-            }
-          });
+          that.login(res.code);
         } else {
           // 登录失败的话 ，重新调用 登录方法
           that.userLogin();
@@ -42,34 +46,26 @@ App({
       }
     })
   },
-  //getUserInfo
-  login: function (codes) {
-    // codes是wx.login 后拿到的code
+  //login
+  login: function (code) {
+    // code是wx.login 后拿到的code
     var that = this;
-    wx.getUserInfo({
-      // 获取用户信息
-      success: res => {
-        // 可以将 res 发送给后台解码出 unionId
-        that.globalData.userInfo = res.userInfo;
-        // 登录接口 需要的数据      
-        var data = {                                    
-          code: codes
-        };
-        //登录请求
-        this.request(that.globalData.serverUrl+"auth/wxLogin","get", data).then(res => {
-          const data = res;
-          if (data.user) {
-            that.globalData.user = data.user;
-            that.globalData.token = data.token;
-            wx.switchTab({
-              url: '/pages/device/device'
-            });
-          }else {
-            wx.redirectTo({
-              url: '/pages/login/login?openId='+data.openId
-            });
-          }
-        })
+    let param = {
+      code:code
+    }
+    //登录请求
+    that.request(that.globalData.serverUrl+"auth/wxLogin","get", param).then(res => {
+      const data = res;
+      if (data.user) {
+        that.globalData.user = data.user;
+        that.globalData.token = data.token;
+        wx.switchTab({
+          url: '/pages/device/device'
+        });
+      }else {
+        wx.redirectTo({
+          url: '/pages/login/login?openId='+data.openId
+        });
       }
     })
   },

@@ -18,8 +18,7 @@ Page({
     let params = {
       username: this.data.username,
       password: this.data.password,
-      openId: this.data.openId,
-      avatar: this.data.userInfo.avatarUrl
+      openId: this.data.openId
     }
     console.log(params);
     app.request(app.globalData.serverUrl + '/auth/wxBinding',"post", params).then(res=>{
