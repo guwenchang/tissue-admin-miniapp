@@ -18,12 +18,13 @@ Page({
     let params = {
       username: this.data.username,
       password: this.data.password,
-      openId: this.data.openId
+      openId: this.data.openId,
+      avatar: this.data.userInfo.avatarUrl
     }
     console.log(params);
-    app.request(app.globalData.serverUrl + '/account/bindOpenId',"post", params).then(res=>{
-      app.globalData.user = data.user;
-      app.globalData.token = data.token;
+    app.request(app.globalData.serverUrl + '/auth/wxBinding',"post", params).then(res=>{
+      app.globalData.user = res.user;
+      app.globalData.token = res.token;
       wx.switchTab({
         url: '/pages/device/device'
       });
