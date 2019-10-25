@@ -6,8 +6,8 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarBackgroundColor": "#1989fa",
+    "navigationBarTitleText": "设备管理",
     "navigationBarTextStyle": "black"
   },
   "usingComponents": {
@@ -16,16 +16,16 @@
   },
   "tabBar": {
     "custom": false,
-    "color": "#666666",
-    "selectedColor": "#449f45",
+    "color": "#888888",
+    "selectedColor": "#1989fa",
     "backgroundColor": "#ffffff",
     "borderStyle": "black",
     "position": "bottom",
     "list": [
       {
         "pagePath": "pages/device/device",
-        "iconPath": "images/tabbar/out.png",
-        "selectedIconPath": "images/tabbar/out-selected.png",
+        "iconPath": "images/tabbar/device.png",
+        "selectedIconPath": "images/tabbar/device-selected.png",
         "text": "设备"
       },
       {

@@ -11,7 +11,7 @@
             <van-field value="{{ username }}" clearable label="用户名" bind:input="usernameIn" placeholder="请输入用户名" />
             <van-field value="{{ password }}" type="password" label="密码" placeholder="请输入密码" bind:input="passwordIn" border="{{ false }}" />
         </van-cell-group>
-        <van-button round class="login-btn" bind:click="login" type="primary" size="large">
+        <van-button round class="login-btn" bind:click="login" type="info" size="large">
             登陆
         </van-button>
     </view>
