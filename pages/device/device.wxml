@@ -1,2 +1,18 @@
 <!--pages/device/device.wxml-->
-<text>pages/device/device.wxml</text>
+<view>
+<van-row class="statics">
+  <van-col span="12">
+    <text>设备总数 100</text>
+  </van-col>
+  <van-col span="12">
+    <text>今日出纸 100</text>
+  </van-col>
+</van-row>
+</view>
+<view>
+  <van-tabs active="a">
+    <van-tab title="标签 1" name="a">内容 1</van-tab>
+    <van-tab title="标签 2" name="b">内容 2</van-tab>
+    <van-tab title="标签 3" name="c">内容 3</van-tab>
+  </van-tabs>
+</view>
