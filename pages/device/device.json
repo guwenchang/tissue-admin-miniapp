@@ -1,4 +1,7 @@
 {
+  "window": {
+    "onReachBottomDistance": 50
+  },
   "usingComponents": {
     "device-item":"/components/deviceItem/deviceItem"
   }

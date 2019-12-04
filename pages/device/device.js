@@ -9,8 +9,8 @@ Page({
   data: {
     devices : [],
     type: 0,
-    pageNo: 1,
-    pageSize: 10,
+    pageNo: 0,
+    pageSize: 4,
     isLastPage: false
   },
 
@@ -18,16 +18,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function () {
-    this.getData()
-  },
-
-  // 上拉加载更多
-  onReachBottom: function () {
-    // 最后一页了，取消下拉功能
-    if (this.data.isLastPage) {
-      return
-    }
-    this.setData({ pageNo: this.data.pageNo + 1 })
     this.getData()
   },
 
@@ -88,6 +78,10 @@ Page({
   },
 
   getData() {
+    if (this.data.isLastPage) {
+      return
+    }
+    this.setData({ pageNo: this.data.pageNo + 1 })
     // 发起请求
     wx.showLoading({
       title: '加载中',

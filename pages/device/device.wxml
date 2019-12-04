@@ -12,10 +12,13 @@
 <view>
   <van-tabs active="{{ type }}" color="#1890FF" type="card">
     <van-tab title="全部" name="0">
-      <device-item bindtap="detail" data-id="{{ item.id }}" wx:for="{{ devices }}" item="{{ item }}" wx:key="id">
-      </device-item>
-      <view wx:if="{{ isLastPage }}" style="text-align: center;margin: 10px;">
-        <view>没有更多了</view>
+      <view>
+        <device-item bindtap="detail" data-id="{{ item.id }}" wx:for="{{ devices }}" item="{{ item }}" wx:key="id">
+        </device-item>
+      </view>
+      <view>
+        <view wx:if="{{ isLastPage }}">没有更多了</view>
+        <view wx:else bindtap="getData">点击加载更多</view>
       </view>
     </van-tab>
     <van-tab title="缺纸" name="1">内容 2</van-tab>
