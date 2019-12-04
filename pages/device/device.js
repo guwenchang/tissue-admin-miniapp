@@ -1,18 +1,34 @@
 // pages/device/device.js
+const app = getApp()
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    devices : [],
+    type: 0,
+    pageNo: 1,
+    pageSize: 10,
+    isLastPage: false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function () {
+    this.getData()
+  },
 
+  // 上拉加载更多
+  onReachBottom: function () {
+    // 最后一页了，取消下拉功能
+    if (this.data.isLastPage) {
+      return
+    }
+    this.setData({ pageNo: this.data.pageNo + 1 })
+    this.getData()
   },
 
   /**
@@ -62,5 +78,28 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  getData() {
+    // 发起请求
+    wx.showLoading({
+      title: '加载中',
+    })
+    let params = {
+      type: this.data.type,
+      pageNo: this.data.pageNo,
+      pageSize: this.data.pageSize
+    }
+    app.request(app.globalData.serverUrl + '/device/page', "get", params)         .then(res => {
+        wx.hideLoading()
+        var newData = {}
+        if (res.records.length < this.data.pageSize) {
+          // 没有数据了，已经是最后一页
+          newData.isLastPage = true
+        }
+        // 追加数据
+        newData.devices = this.data.devices.concat(res.records)
+        this.setData(newData)
+      })
   }
 })

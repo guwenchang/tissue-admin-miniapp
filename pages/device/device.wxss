@@ -1,6 +1,6 @@
 /* pages/device/device.wxss */
-.statics {
-  display: flex;
-  flex-direction: column;
-  justify-content:center;
+.statics-container {
+    display: flex;
+    align-items:center;
+    justify-content:center;
 }

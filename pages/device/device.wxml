@@ -1,6 +1,6 @@
 <!--pages/device/device.wxml-->
 <view>
-<van-row class="statics">
+<van-row class="statics-container">
   <van-col span="12">
     <text>设备总数 100</text>
   </van-col>
@@ -10,9 +10,15 @@
 </van-row>
 </view>
 <view>
-  <van-tabs active="a">
-    <van-tab title="标签 1" name="a">内容 1</van-tab>
-    <van-tab title="标签 2" name="b">内容 2</van-tab>
-    <van-tab title="标签 3" name="c">内容 3</van-tab>
+  <van-tabs active="{{ type }}" color="#1890FF" type="card">
+    <van-tab title="全部" name="0">
+      <device-item wx:for="{{ devices }}" item="{{ item }}">
+      </device-item>
+      <view wx:if="{{ isLastPage }}" style="text-align: center;margin: 10px;">
+        <view>没有更多了</view>
+      </view>
+    </van-tab>
+    <van-tab title="缺纸" name="1">内容 2</van-tab>
+    <van-tab title="离线" name="2">内容 3</van-tab>
   </van-tabs>
 </view>

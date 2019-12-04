@@ -59,6 +59,8 @@ App({
       if (data.user) {
         that.globalData.user = data.user;
         that.globalData.token = data.token;
+        wx.setStorageSync('token', data.token);
+        wx.setStorageSync('user', data.user);
         wx.switchTab({
           url: '/pages/device/device'
         });
@@ -80,7 +82,7 @@ App({
         data: params,
         header: {
           'content-type': 'application/json', // 默认值
-          'auth-token': token
+          'Access-Token': token
         },
         success: res => {
           if (res.statusCode !== 200 || res.data.code != 0) {

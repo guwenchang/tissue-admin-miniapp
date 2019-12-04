@@ -1,0 +1,17 @@
+<!--components/deviceItem/deviceItem.wxml-->
+<view style="border:1px dashed #000">
+  <view>
+    <view>
+      <view>
+        <van-tag wx:if="{{item.onlineStatus === 2}}" size="large">离线</van-tag>
+        <van-tag wx:else type="success" size="large">在线</van-tag>
+      </view>
+      <view>{{ item.deviceCode }}</view>
+      <view>所属机构 {{ item.placeName }}</view>
+      <view>具体地址 {{ item.position }}</view>
+      <view>干纸巾数量 {{ item.dryWipesCount }}</view>
+      <view>湿纸巾数量 {{ item.wetWipesCount }}</view>
+      <van-icon name="arrow" />
+    </view>
+  </view>
+</view>

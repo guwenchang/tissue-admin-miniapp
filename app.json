@@ -6,7 +6,7 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#1989fa",
+    "navigationBarBackgroundColor": "#1890FF",
     "navigationBarTitleText": "设备管理",
     "navigationBarTextStyle": "black"
   },
@@ -16,7 +16,9 @@
     "van-tab": "vant-weapp/tab/index",
     "van-tabs": "vant-weapp/tabs/index",
     "van-row": "vant-weapp/row/index",
-    "van-col": "vant-weapp/col/index"
+    "van-col": "vant-weapp/col/index",
+    "van-tag": "vant-weapp/tag/index",
+    "van-icon": "vant-weapp/icon/index"
   },
   "tabBar": {
     "custom": false,

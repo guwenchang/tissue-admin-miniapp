@@ -24,6 +24,8 @@ Page({
     app.request(app.globalData.serverUrl + '/auth/wxBinding',"post", params).then(res=>{
       app.globalData.user = res.user;
       app.globalData.token = res.token;
+      wx.setStorageSync('token', res.token)
+      wx.setStorageSync('user', res.user)
       wx.switchTab({
         url: '/pages/device/device'
       });
