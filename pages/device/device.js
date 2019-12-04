@@ -80,6 +80,13 @@ Page({
 
   },
 
+  detail(e) {
+    let id = e.currentTarget.dataset.id
+    wx.navigateTo({
+      url: '/pages/device/detail/detail?id=' + id
+    })
+  },
+
   getData() {
     // 发起请求
     wx.showLoading({

@@ -12,7 +12,7 @@
 <view>
   <van-tabs active="{{ type }}" color="#1890FF" type="card">
     <van-tab title="全部" name="0">
-      <device-item wx:for="{{ devices }}" item="{{ item }}">
+      <device-item bindtap="detail" data-id="{{ item.id }}" wx:for="{{ devices }}" item="{{ item }}" wx:key="id">
       </device-item>
       <view wx:if="{{ isLastPage }}" style="text-align: center;margin: 10px;">
         <view>没有更多了</view>
