@@ -9,7 +9,11 @@ Page({
     id: undefined,
     item: {},
     markers: [],
-    addWipe: false
+    addWipe: false,
+    testWipe: false,
+    wipeType: '1',
+    dryWipesCount: 0,
+    wetWipesCount: 0
   },
 
   /**
@@ -26,10 +30,94 @@ Page({
       addWipe: true
     })
   },
+  testWipe() {
+    this.setData({
+      testWipe: true
+    })
+  },
   onAddWipeClose() {
     this.setData({
       addWipe: false
     });
+  },
+  onTestWipeClose() {
+    this.setData({
+      testWipe: false
+    });
+  },
+
+  dryWipesCountChange: function (e) {
+    this.setData({dryWipesCount: e.detail});
+  },
+  wetWipesCountChange: function (e) {
+    this.setData({wetWipesCount: e.detail});
+  },
+  wipeTypeChange: function (e) {
+    this.setData({wipeType: e.detail});
+  },
+  reStart() {
+    // 发起请求
+    wx.showLoading({
+      title: '提交中',
+    })
+    let reStartParam = {
+      deviceIds: [this.data.item.deviceId]
+    }
+    app.request(app.globalData.serverUrl + '/device/restart', "post",reStartParam).then(res => {
+      wx.hideLoading()
+      this.setData({
+        testWipe: false
+      })
+      wx.showToast({
+        title: '命令发送成功',
+        icon: 'success',
+        duration: 2000
+      })
+    })
+  },
+  testWipeSubmit() {
+    // 发起请求
+    wx.showLoading({
+      title: '提交中',
+    })
+    let testWipeParam = {
+      deviceId: this.data.item.deviceId,
+      wipeType: this.data.wipeType
+    }
+    app.request(app.globalData.serverUrl + '/device/testWipe', "post",testWipeParam).then(res => {
+      wx.hideLoading()
+      this.setData({
+        testWipe: false
+      })
+      wx.showToast({
+        title: '加纸成功',
+        icon: 'success',
+        duration: 2000
+      })
+    })
+  },
+  addWipeSubmit() {
+    // 发起请求
+    wx.showLoading({
+      title: '提交中',
+    })
+    let addWipeParam = {
+      deviceId: this.data.item.deviceId,
+      dryWipesCount: this.data.dryWipesCount,
+      wetWipesCount: this.data.wetWipesCount
+    }
+    app.request(app.globalData.serverUrl + '/device/addWipe', "post",addWipeParam).then(res => {
+      wx.hideLoading()
+      this.setData({
+        addWipe: false
+      })
+      this.getData()
+      wx.showToast({
+        title: '加纸成功',
+        icon: 'success',
+        duration: 2000
+      })
+    })
   },
   getData() {
     // 发起请求

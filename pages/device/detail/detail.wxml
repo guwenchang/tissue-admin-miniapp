@@ -13,6 +13,8 @@
       <view>湿纸巾数量 {{ item.place.wetWipesPrice }} 元 {{ item.wetWipesCount }}</view>
       <view>运维负责人 {{ item.ownerName }}</view>
       <van-button bindtap="addWipe" type="primary">加纸</van-button>
+      <van-button bindtap="testWipe" type="primary">测试出纸</van-button>
+      <van-button bindtap="reStart" type="primary">重启</van-button>
 
     </view>
     <view class="page-section page-section-gap">
@@ -20,5 +22,28 @@
       </map>
     </view>
   </view>
-  <van-popup show="{{ addWipe }}" position="bottom" closeable custom-style="height: 50%;" bind:close="onAddWipeClose" />
+  <van-popup show="{{ addWipe }}" position="bottom" custom-style="height: 60%;" bind:close="onAddWipeClose">
+    <view> 设备编号 {{ item.deviceCode }}</view>
+    <van-cell-group>
+      <van-cell title="干纸巾余量" value="{{ item.dryWipesCount }}" />
+      <van-cell title="湿纸巾余量" value="{{ item.wetWipesCount }}" />
+    </van-cell-group>
+    <van-cell-group>
+      <van-cell center title="干纸巾加量">
+        <van-stepper min="-10000" bind:change="dryWipesCountChange" name="dryWipesCount"  value="{{ 0 }}" />
+      </van-cell>
+      <van-cell center title="湿纸巾加量">
+        <van-stepper min="-10000" bind:change="wetWipesCountChange" name="wetWipesCount"  value="{{ 0 }}" />
+      </van-cell>
+    </van-cell-group>
+    <van-button round bind:click="addWipeSubmit" type="primary" size="large">确定加纸</van-button>
+  </van-popup>
+    <van-popup show="{{ testWipe }}" position="bottom" custom-style="height: 40%;" bind:close="onTestWipeClose">
+    <view> 设备编号 {{ item.deviceCode }}</view>
+    <van-radio-group value="{{ wipeType }}" bind:change="wipeTypeChange">
+      <van-radio name="1">干纸巾</van-radio>
+      <van-radio name="3">湿纸巾</van-radio>
+    </van-radio-group>
+    <van-button round bind:click="testWipeSubmit" type="primary" size="large">确定</van-button>
+  </van-popup>
 </view>
