@@ -1,5 +1,5 @@
 //app.js
-const serverUrl = 'http://127.0.0.1:8090/';
+const serverUrl = 'http://10.188.252.10:8090/';
 
 App({
   globalData: {
@@ -61,6 +61,7 @@ App({
         that.globalData.token = data.token;
         wx.setStorageSync('token', data.token);
         wx.setStorageSync('user', data.user);
+        console.log("login")
         wx.switchTab({
           url: '/pages/device/device'
         });
@@ -85,15 +86,19 @@ App({
           'Access-Token': token
         },
         success: res => {
-          if (res.statusCode !== 200 || res.data.code != 0) {
-            wx.showToast({
-              title: res.data.msg,
-              icon: 'none',
-              mask: true,
-              duration: 1500
-            })
-            reject({ error: '服务器忙，请稍后重试', code: 500 });
-            return;
+          if (res.statusCode !== 200 || res.data.code !== 0) {
+            if (res.data.code === 401) {
+              this.userLogin()
+            } else {
+              wx.showToast({
+                title: res.data.msg,
+                icon: 'none',
+                mask: true,
+                duration: 1500
+              })
+              reject({ error: '服务器忙，请稍后重试', code: 500 });
+              return;
+            }
           }
           let resData = res.data;
           resolve(resData.data)
