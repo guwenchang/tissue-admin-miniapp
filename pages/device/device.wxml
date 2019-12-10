@@ -2,12 +2,8 @@
 <view>
   <view class="statics-container">  
     <view class="title-content">
-      <view class="title-num">100</view>
+      <view class="title-num">{{ total }}</view>
       <view>设备总数</view>
-    </view>
-    <view class="title-content">
-      <view class="title-num">100</view>
-      <view>今日出纸</view>
     </view>
   </view>
   <view>
@@ -18,13 +14,12 @@
     </van-tabs>
   </view>
   <view>
-    <view>
+    <view class="tab-container">
       <device-item bindtap="detail" data-id="{{ item.id }}" wx:for="{{ devices }}" item="{{ item }}" wx:key="id">
       </device-item>
     </view>
     <view>
-      <view wx:if="{{ isLastPage }}">没有更多了</view>
-      <view wx:else bindtap="getData">点击加载更多</view>
+      <van-divider wx:if="{{ isLastPage }}" contentPosition="center">没有更多了</van-divider>
     </view>
   </view>
 </view>

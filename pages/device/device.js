@@ -76,6 +76,7 @@ Page({
       pageNo: 0,
       type: e.detail.name,
       isLastPage: false,
+      total: 0,
       devices: []
     })
     this.getData()
@@ -114,6 +115,7 @@ Page({
         }
         // 追加数据
         newData.devices = this.data.devices.concat(res.records)
+        newData.total = res.total
         this.setData(newData)
       })
   }

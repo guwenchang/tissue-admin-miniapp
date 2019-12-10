@@ -25,7 +25,8 @@
     "van-cell-group": "vant-weapp/cell-group/index",
     "van-stepper": "vant-weapp/stepper/index",
     "van-radio": "vant-weapp/radio/index",
-    "van-radio-group": "vant-weapp/radio-group/index"
+    "van-radio-group": "vant-weapp/radio-group/index",
+    "van-divider": "vant-weapp/divider/index"
   },
   "tabBar": {
     "custom": false,

@@ -10,15 +10,11 @@
       <view>所属机构：{{ item.placeName }}</view>
       <view>具体地址：{{ item.position }}</view>
       <view class="table">
-        <view class="tr bg-w">
-          <view class="th goods-th">商品</view>
-          <view class="th num-th">数量</view>
-        </view>
         <view class="tr">
           <view class="td goods-th">干纸巾数量（{{ item.dryWipesPrice }}元）</view>
           <view class="td num-th">{{ item.dryWipesCount }}</view>
         </view>
-        <view class="tr bg-g">
+        <view class="tr">
           <view class="td goods-th">湿纸巾数量（{{ item.wetWipesPrice }}元）</view>
           <view class="td num-th">{{ item.wetWipesCount }}</view>
         </view>
