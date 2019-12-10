@@ -24,7 +24,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.8.3",
 	"appid": "wx1bfb3d24e452b250",
-	"projectname": "tissue-admin-miniapp-master",
+	"projectname": "tissue-admin-miniapp",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
