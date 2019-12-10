@@ -1,6 +1,12 @@
 /* pages/device/device.wxss */
 .statics-container {
     display: flex;
-    align-items:center;
-    justify-content:center;
+    flex-flow: row nowrap;
+}
+.title-content{
+    text-align: center;
+    margin: 5px auto;
+}
+.title-num{
+    font-size: 25px;
 }

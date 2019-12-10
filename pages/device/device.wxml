@@ -1,14 +1,14 @@
 <!--pages/device/device.wxml-->
 <view>
-  <view>
-    <van-row class="statics-container">
-      <van-col span="12">
-        <text>设备总数 100</text>
-      </van-col>
-      <van-col span="12">
-        <text>今日出纸 100</text>
-      </van-col>
-    </van-row>
+  <view class="statics-container">  
+    <view class="title-content">
+      <view class="title-num">100</view>
+      <view>设备总数</view>
+    </view>
+    <view class="title-content">
+      <view class="title-num">100</view>
+      <view>今日出纸</view>
+    </view>
   </view>
   <view>
     <van-tabs active="{{ type }}" color="#1890FF"  bind:change="typeChange">

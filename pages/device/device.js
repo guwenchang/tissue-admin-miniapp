@@ -10,7 +10,7 @@ Page({
     devices : [],
     type: 0,
     pageNo: 0,
-    pageSize: 10,
+    pageSize: 4,
     isLastPage: false
   },
 
@@ -87,7 +87,10 @@ Page({
       url: '/pages/device/detail/detail?id=' + id
     })
   },
-
+  onReachBottom: function () {
+    // 最后一页了，取消下拉功能
+    this.getData()
+  },
   getData() {
     if (this.data.isLastPage) {
       return

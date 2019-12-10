@@ -1,1 +1,30 @@
 /* components/deviceItem/deviceItem.wxss */
+.item-content{
+  position: relative;
+}
+.item-tags{
+  position: absolute;
+}
+.placeName{
+  margin-left: 50px;
+  line-height: 26px;
+}
+.divice-content{
+  display: flex;
+  flex-flow: row nowrap;
+}
+.deviceCode{
+  width: 50%;
+  font-size: 30px;
+  margin-left: 10px;
+}
+.position{
+  margin-left: 10px;
+}
+.next{
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate(-50%,-50%);
+}
+

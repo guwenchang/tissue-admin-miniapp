@@ -1,21 +1,33 @@
 <!--pages/device/detail/detail.wxml-->
 <view>
   <view>
-    <view>
-      <view>
+    <view class="item-content">
+      <view class="item-tags">
         <van-tag wx:if="{{item.onlineStatus === 2}}" size="large">离线</van-tag>
         <van-tag wx:else type="success" size="large">在线</van-tag>
       </view>
-      <view>{{ item.deviceCode }}</view>
-      <view>所属机构 {{ item.placeName }}</view>
-      <view>具体地址 {{ item.position }}</view>
-      <view>干纸巾数量 {{ item.dryWipesPrice }} 元 {{ item.dryWipesCount }}</view>
-      <view>湿纸巾数量 {{ item.wetWipesPrice }} 元 {{ item.wetWipesCount }}</view>
-      <view>运维负责人 {{ item.ownerName }}</view>
-      <view wx:if="{{item.onlineStatus === 1}}" >
-        <van-button bindtap="addWipe" type="primary">加纸</van-button>
-        <van-button bindtap="testWipe" type="primary">测试出纸</van-button>
-        <van-button bindtap="reStart" type="primary">重启</van-button>
+      <view class="deviceCode">{{ item.deviceCode }}</view>
+      <view>所属机构：{{ item.placeName }}</view>
+      <view>具体地址：{{ item.position }}</view>
+      <view class="table">
+        <view class="tr bg-w">
+          <view class="th goods-th">商品</view>
+          <view class="th num-th">数量</view>
+        </view>
+        <view class="tr">
+          <view class="td goods-th">干纸巾数量（{{ item.dryWipesPrice }}元）</view>
+          <view class="td num-th">{{ item.dryWipesCount }}</view>
+        </view>
+        <view class="tr bg-g">
+          <view class="td goods-th">湿纸巾数量（{{ item.wetWipesPrice }}元）</view>
+          <view class="td num-th">{{ item.wetWipesCount }}</view>
+        </view>
+      </view>
+      <view class="ownerName">运维负责人：{{ item.ownerName }}</view>
+      <view wx:if="{{item.onlineStatus === 1}}" class="button-content">
+        <van-button class="button" bindtap="addWipe" type="primary" size="small">加纸</van-button>
+        <van-button class="button" bindtap="testWipe" type="primary" size="small">测试出纸</van-button>
+        <van-button class="button" bindtap="reStart" type="primary" size="small">重启</van-button>
       </view>
     </view>
     <view class="page-section page-section-gap">
@@ -24,7 +36,8 @@
     </view>
   </view>
   <van-popup show="{{ addWipe }}" position="bottom" custom-style="height: 60%;" bind:close="onAddWipeClose">
-    <view> 设备编号 {{ item.deviceCode }}</view>
+    <view class="van-content">
+      <view class="divice-title"> 设备编号 {{ item.deviceCode }}</view>
     <van-cell-group>
       <van-cell title="干纸巾余量" value="{{ item.dryWipesCount }}" />
       <van-cell title="湿纸巾余量" value="{{ item.wetWipesCount }}" />
@@ -38,13 +51,18 @@
       </van-cell>
     </van-cell-group>
     <van-button round bind:click="addWipeSubmit" type="primary" size="large">确定加纸</van-button>
+    </view>
   </van-popup>
     <van-popup show="{{ testWipe }}" position="bottom" custom-style="height: 40%;" bind:close="onTestWipeClose">
-    <view> 设备编号 {{ item.deviceCode }}</view>
-    <van-radio-group value="{{ wipeType }}" bind:change="wipeTypeChange">
-      <van-radio name="1">干纸巾</van-radio>
-      <van-radio name="3">湿纸巾</van-radio>
-    </van-radio-group>
-    <van-button round bind:click="testWipeSubmit" type="primary" size="large">确定</van-button>
+    <view class="van-content">
+      <view class="divice-title"> 设备编号 {{ item.deviceCode }}</view>
+      <view class="radio-style">
+        <van-radio-group value="{{ wipeType }}" bind:change="wipeTypeChange">
+          <van-radio name="1">干纸巾</van-radio>
+          <van-radio name="3">湿纸巾</van-radio>
+        </van-radio-group>
+      </view>
+      <van-button round bind:click="testWipeSubmit" type="primary" size="large">确定</van-button>
+    </view>
   </van-popup>
 </view>

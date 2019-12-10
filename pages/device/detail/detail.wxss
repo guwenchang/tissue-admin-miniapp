@@ -1,1 +1,70 @@
 /* pages/device/detail/detail.wxss */
+.item-content{
+  position: relative;
+  padding: 10px;
+}
+.item-tags{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.deviceCode{
+  font-size: 30px;
+}
+.placeName{
+
+}
+.table {
+  border: 0px solid darkgray;
+ }
+ .tr {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  height: 30px;
+  align-items: center;
+ }
+ .td {
+  justify-content: center;
+  text-align: center;
+ }
+ .bg-w{
+  background: snow;
+ }
+ .bg-g{
+  background: #E6F3F9;
+ }
+ .th {
+  justify-content: center;
+  background: #3AA6F5;
+  color: #fff;
+  display: flex;
+  height: 30px;
+  align-items: center;
+ }
+ .goods-th {
+   width: 60%;
+ }
+ .num-th{
+   width: 40%;
+ }
+ .ownerName{
+   margin: 10px 0;
+ }
+ .button-content{
+   display: flex;
+   justify-content: space-around;
+ }
+ .button{
+   width: 70px;
+ }
+ .divice-title{
+   margin: 10px 0;
+   text-align: center;
+ }
+ .van-content{
+   padding: 10px!important;
+ }
+ .radio-style{
+   margin-bottom: 25px;
+ }

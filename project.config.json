@@ -24,7 +24,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.8.3",
 	"appid": "wx1bfb3d24e452b250",
-	"projectname": "tissue-admin-miniapp",
+	"projectname": "tissue-admin-miniapp-master",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
@@ -40,13 +40,25 @@
 			"current": -1,
 			"list": []
 		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
 		"game": {
 			"currentL": -1,
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
-			"list": []
+			"current": 0,
+			"list": [
+				{
+					"id": 0,
+					"name": "页面详情",
+					"pathName": "pages/device/detail/detail",
+					"query": "id=24",
+					"scene": null
+				}
+			]
 		}
 	}
 }
