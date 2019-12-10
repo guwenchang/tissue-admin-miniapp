@@ -12,10 +12,11 @@
       <view>干纸巾数量 {{ item.dryWipesPrice }} 元 {{ item.dryWipesCount }}</view>
       <view>湿纸巾数量 {{ item.wetWipesPrice }} 元 {{ item.wetWipesCount }}</view>
       <view>运维负责人 {{ item.ownerName }}</view>
-      <van-button bindtap="addWipe" type="primary">加纸</van-button>
-      <van-button bindtap="testWipe" type="primary">测试出纸</van-button>
-      <van-button bindtap="reStart" type="primary">重启</van-button>
-
+      <view wx:if="{{item.onlineStatus === 1}}" >
+        <van-button bindtap="addWipe" type="primary">加纸</van-button>
+        <van-button bindtap="testWipe" type="primary">测试出纸</van-button>
+        <van-button bindtap="reStart" type="primary">重启</van-button>
+      </view>
     </view>
     <view class="page-section page-section-gap">
       <map style="width: 100%; height: 300px;" latitude="{{item.place.latitude}}" longitude="{{item.place.longitude}}" markers="{{markers}}" enable-3D="{{enable3d}}">
