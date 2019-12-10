@@ -1,5 +1,5 @@
 //app.js
-const serverUrl = 'http://10.188.252.10:8090/';
+const serverUrl = 'https://test-api.lianqixinxi.cn/';
 
 App({
   globalData: {

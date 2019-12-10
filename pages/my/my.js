@@ -47,7 +47,7 @@ Page({
   },
   subscribeMessage: function (e) {
     wx.requestSubscribeMessage({
-      tmplIds: ['UDkPW5NudBzCn5OcSsQyA0_bVCHkXfRwaJJUAWsxu84','atBr1TEeHiF8V_nzxzhlyz1nVln1_GY1sUx5xpDIDAQ','Ck_kathOfZs83Qab-6vNs0kA2EdVIC1t85mBk4o1gdY'],
+      tmplIds: ['UDkPW5NudBzCn5OcSsQyA20gBTPgY28cYatE537pQl4','atBr1TEeHiF8V_nzxzhlyz1nVln1_GY1sUx5xpDIDAQ','Ck_kathOfZs83Qab-6vNs0kA2EdVIC1t85mBk4o1gdY'],
       success (res) { },
       fail (res) {
         console.log(res)
