@@ -9,8 +9,8 @@
       <view>{{ item.deviceCode }}</view>
       <view>所属机构 {{ item.placeName }}</view>
       <view>具体地址 {{ item.position }}</view>
-      <view>干纸巾数量 {{ item.place.dryWipesPrice }} 元 {{ item.dryWipesCount }}</view>
-      <view>湿纸巾数量 {{ item.place.wetWipesPrice }} 元 {{ item.wetWipesCount }}</view>
+      <view>干纸巾数量 {{ item.dryWipesPrice }} 元 {{ item.dryWipesCount }}</view>
+      <view>湿纸巾数量 {{ item.wetWipesPrice }} 元 {{ item.wetWipesCount }}</view>
       <view>运维负责人 {{ item.ownerName }}</view>
       <van-button bindtap="addWipe" type="primary">加纸</van-button>
       <van-button bindtap="testWipe" type="primary">测试出纸</van-button>

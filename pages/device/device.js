@@ -10,7 +10,7 @@ Page({
     devices : [],
     type: 0,
     pageNo: 0,
-    pageSize: 4,
+    pageSize: 10,
     isLastPage: false
   },
 
@@ -71,6 +71,16 @@ Page({
 
   },
 
+  typeChange: function (e) {
+    this.setData({ 
+      pageNo: 0,
+      type: e.detail.name,
+      isLastPage: false,
+      devices: []
+    })
+    this.getData()
+  },
+
   detail(e) {
     let id = e.currentTarget.dataset.id
     wx.navigateTo({
@@ -88,7 +98,7 @@ Page({
       title: '加载中',
     })
     let params = {
-      type: this.data.type,
+      queryType: this.data.type,
       pageNo: this.data.pageNo,
       pageSize: this.data.pageSize
     }

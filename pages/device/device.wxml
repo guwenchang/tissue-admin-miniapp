@@ -1,27 +1,31 @@
 <!--pages/device/device.wxml-->
 <view>
-<van-row class="statics-container">
-  <van-col span="12">
-    <text>设备总数 100</text>
-  </van-col>
-  <van-col span="12">
-    <text>今日出纸 100</text>
-  </van-col>
-</van-row>
+  <view>
+    <van-row class="statics-container">
+      <van-col span="12">
+        <text>设备总数 100</text>
+      </van-col>
+      <van-col span="12">
+        <text>今日出纸 100</text>
+      </van-col>
+    </van-row>
+  </view>
+  <view>
+    <van-tabs active="{{ type }}" color="#1890FF"  bind:change="typeChange">
+      <van-tab title="全部" name="0"></van-tab>
+      <van-tab title="缺纸" name="1"></van-tab>
+      <van-tab title="离线" name="2"></van-tab>
+    </van-tabs>
+  </view>
+  <view>
+    <view>
+      <device-item bindtap="detail" data-id="{{ item.id }}" wx:for="{{ devices }}" item="{{ item }}" wx:key="id">
+      </device-item>
+    </view>
+    <view>
+      <view wx:if="{{ isLastPage }}">没有更多了</view>
+      <view wx:else bindtap="getData">点击加载更多</view>
+    </view>
+  </view>
 </view>
-<view>
-  <van-tabs active="{{ type }}" color="#1890FF" type="card">
-    <van-tab title="全部" name="0">
-      <view>
-        <device-item bindtap="detail" data-id="{{ item.id }}" wx:for="{{ devices }}" item="{{ item }}" wx:key="id">
-        </device-item>
-      </view>
-      <view>
-        <view wx:if="{{ isLastPage }}">没有更多了</view>
-        <view wx:else bindtap="getData">点击加载更多</view>
-      </view>
-    </van-tab>
-    <van-tab title="缺纸" name="1">内容 2</van-tab>
-    <van-tab title="离线" name="2">内容 3</van-tab>
-  </van-tabs>
-</view>
+
